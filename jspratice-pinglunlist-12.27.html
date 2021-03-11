@@ -1,0 +1,44 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-27 10:46:48
+ * @LastEditTime: 2020-12-28 15:54:19
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\jspratice12-27.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评论列表</title>
+</head>
+<body>
+    <div class="wrap">
+        <textarea name="输入框" id="text" cols="30" rows="10"></textarea>
+        <input type="button" value="提交" id="input">
+    </div>
+    <ul id="pl">
+    </ul>
+</body>
+<script>
+    var otext = document.getElementById('text');
+    var oinput = document.getElementById('input');
+    var opl = document.getElementById('pl');
+    oinput.onclick = function(){
+        var val = otext.value;
+        var oli = document.createElement('li');
+        var ospan = document.createElement('span');
+        ospan.innerHTML = val;
+        oli.appendChild(ospan);
+        var obutton = document.createElement('span');
+        obutton.innerHTML = '删除';
+        obutton.onclick = function(){
+            opl.removeChild(oli);
+        }
+        oli.appendChild(obutton);
+        opl.insertBefore(oli,opl.firstChild);
+        otext.value = '';
+    }
+</script>
+</html>

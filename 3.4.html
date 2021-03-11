@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-03-04 19:09:51
+ * @LastEditTime: 2021-03-04 20:26:37
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\3.4.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var arr = [1,2,1,12,2]
+    // var likeArr = {}
+    // console.log(likeArr)
+    // var len = [].push.apply(likeArr,arr)
+    // console.log(likeArr)
+    
+    // var likeArr1 = {
+    //     0:'like',
+    //     1:'one',
+    //     length:2
+    // }
+    // var arr1 = [].slice.call(likeArr1)
+    // console.log(arr1);
+    var arr = [55,55,44,88,6,4,6,1,4,1,5]
+    // var result = Math.max.apply(null,arr)
+    // console.log(Math.max.apply(null,arr));
+    function max(){
+        var maxIndex = 0;
+        for(i=0,len=arr.length;i<len;i++){
+            if(arguments[maxIndex] < arguments[i])
+            maxIndex = i
+        }
+        return arguments[maxIndex]
+    }
+    var result = max.apply(null,arr)
+    console.log(result)
+</script>
+</html>

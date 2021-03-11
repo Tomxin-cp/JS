@@ -1,0 +1,122 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-03-06 10:43:46
+ * @LastEditTime: 2021-03-08 20:02:32
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\3.6xuanxiangka-mianxiangduixiang.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 960px;
+            margin:50px auto;
+        }
+        li{
+            list-style: none;
+        }
+        .tabs{
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid #F9002B;
+            background-color: #ccc;
+        }
+        .tabs li{
+            cursor: pointer;
+            width: 100px;
+            line-height: 40px;
+            text-align: center;
+        }
+        .tabs li:hover{
+            color:#F9002B;
+        }
+        .tabs li.active{
+            color: #fff;
+            background-color: #F9002B;
+        }
+        .contents li{
+            display: none;
+            line-height: 400px;
+            text-align: center;
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="tabs">
+            <li class="active">商品介绍</li>
+            <li>规格与包装</li>
+            <li>售后保障</li>
+            <li>商品评价</li>
+        </ul>
+        <ul class="contents">
+            <li style="display: block;">商品介绍的内容</li>
+            <li>规格与包装的内容</li>
+            <li>售后保障的内容</li>
+            <li>商品评价的内容</li>
+        </ul>
+    </div>   
+</body>
+<script>
+    function Tab(tabsSelector,contentsSelector){
+    //     //罗列属性，拿到Dom节点
+        this.tabs = document.querySelectorAll(tabsSelector)
+        this.contents = document.querySelectorAll(contentsSelector)
+        this.activeIndex = 0
+        this.bindEvent()//绑定一个循环遍历操作每一个li的点击事件
+    }
+    Tab.prototype = {
+        constructor:Tab,//指向Tab
+        bindEvent:function(){
+            var _this = this
+            for(var i = 0,len = this.tabs.length;i < len;i++){
+                this.tabs[i].index = i //存储i的值用，不然会直接是长度的最大值
+                this.tabs[i].onclick = function(){
+                    _this.handleTab(this)//调用的时候是window，会改变this的指向,传进去的就是tabs中相对应的li
+                }
+            }
+        },
+        handleTab:function(elem){
+            //最开始就是存在样式，点击的时候会取消原来的样式，进入页面时一开始就会存在默认样式
+            //点击的时候最开始默认样式消失即（activeIndex=0），传入的下标（elem.index）会显示对应的选项
+            //点击哪个对应的下标会传输给一开始的avtiveIndex，用于下次点击时的初始状态。
+            this.tabs[this.activeIndex].className = ''
+            this.contents[this.activeIndex].style.display = 'none'
+
+            this.tabs[elem.index].className = 'active'
+            this.contents[elem.index].style.display = 'block'
+            
+            this.activeIndex = elem.index
+        }
+    }
+    
+    function enterTab(tabsSelector,contentsSelector){
+        Tab.call(this,tabsSelector,contentsSelector)// 调用父类的构造函数，并改变this的指向
+    }
+    enterTab.prototype = Object.create(Tab.prototype)
+    Object.defineProperty(enterTab.prototype,'constructor',{
+        value:enterTab  
+    })
+    
+    //继承后在enterTab.prototype有bindEvenet事件，对事件进行改造
+    enterTab.prototype.bindEvent = function(){
+        var _this = this
+        for(var i = 0,len = this.tabs.length;i < len;i++){
+        this.tabs[i].index = i 
+        this.tabs[i].onmouseenter = function(){
+            _this.handleTab(this)
+        }
+    }
+}
+    new enterTab('.wrap .tabs li','.wrap .contents  li')
+</script>
+</html>

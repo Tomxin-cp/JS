@@ -1,0 +1,36 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-03-03 18:23:32
+ * @LastEditTime: 2021-03-04 18:47:23
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\3.3-weiyixingquchong.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function uniqueArry(arr){
+        var result = []
+        var obj = {}
+        for(i = 0, len = arr.length;i < len;i++){
+            obj[arr[i]] = i
+        }
+        for(var attr in obj){
+            result.push(attr*1)
+        }
+        return result
+    }
+    var arr = [1,2,55,2,11,22,44,3,2,1,24]
+    var result = uniqueArry(arr)
+    console.log(result);
+    
+</script>
+</html>

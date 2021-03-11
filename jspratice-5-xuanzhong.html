@@ -1,0 +1,63 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-24 19:06:32
+ * @LastEditTime: 2020-12-24 20:02:07
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\jspratice-5-xuanzhong.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="father">
+        <div id="box1" class="box1 box">全选</div>
+        <div id="box2" class="box2 box">全部选</div>
+        <div id="box3" class="box3 box">反选</div>
+        <ul>
+            <li id="li1">1</li>
+            <input type="checkbox">
+            <li id="li2">2</li>
+            <input type="checkbox">
+            <li id="li3">3</li>
+            <input type="checkbox">
+            <li id="li4">4</li>
+             <input type="checkbox">
+        </ul>
+    </div>
+</body4>
+<script>
+    var obox1= document.getElementById('box1');
+    var obox2= document.getElementById('box2');
+    var obox3= document.getElementById('box3');
+    var allinput=document.getElementsByTagName('input');
+    obox1.onclick=function(){
+        for(var i=0;i<=allinput.length;i++){
+            allinput[i].checked='true';
+        }
+    }
+    obox2.onclick=function(){
+        for(var i=0;i<allinput.length;i++){
+            allinput[i].checked=false;
+        }
+    }
+    obox3.onclick=function(){
+        for(var i=0;i<allinput.length;i++){
+            if(allinput[i].checked){
+                allinput[i].checked=false;
+            }else{
+                allinput[i].checked=true;
+            }
+        }
+    }
+</script>
+</html>

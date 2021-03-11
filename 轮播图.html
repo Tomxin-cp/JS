@@ -1,0 +1,186 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-03-10 17:21:57
+ * @LastEditTime: 2021-03-11 14:51:09
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\轮播图.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .carousel-wrap {
+        position: relative;
+        margin: 100 auto;
+        width: 800px;
+        height: 800px;
+        overflow: hidden;
+        border: 1px solid red;
+        margin: 100px auto;
+    }
+
+    .carousel-wrap li {
+        list-style: none;
+    }
+
+    .carousel-wrap .carousel-item {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transition: opacity 3s;
+    }
+    
+    .carousel-wrap .carousel-item.show{
+        opacity: 1;
+    }
+
+    /* 左右点击按钮 */
+    .arrow {
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        width: 30px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        background-color: #ccc;
+        cursor: pointer;
+    }
+
+    .left-arrow {
+        left: 0px;
+    }
+
+    .right-arrow {
+        right: 0px;
+    }
+
+    .carousel-imgs img {
+        width: 800px;
+        height: 800px;
+    }
+
+    .carousel-imgs .show {
+        display: block;
+    }
+
+    /* 下部标记 */
+    .btns {
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+    }
+
+    .btns li {
+        float: left;
+        margin-left: 10px;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        line-height: 25px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+    }
+
+    .btns .active {
+        background-color: #ccc;
+    }
+
+    .btns li:hover {
+        background-color: #ccc;
+    }
+</style>
+
+<body>
+    <div id="wrap" class="carousel-wrap">
+        <ul class="carousel-imgs">
+            <li class="carousel-item show"><img src="C:/pro/JS/1.png" alt=""></li>
+            <li class="carousel-item"><img src="C:/pro/JS/2.png" alt=""></li>
+            <li class="carousel-item"><img src="C:/pro/JS/1.png" alt=""></li>
+        </ul>
+        <ul class="btns">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <span class="left-arrow arrow">&lt;</span>
+        <span class="right-arrow arrow">&gt;</span>
+    </div>
+</body>
+
+<script>
+    var leftArrow = document.querySelector('.carousel-wrap .left-arrow')
+    var rightArrow = document.querySelector('.carousel-wrap .right-arrow')
+    var btns = document.querySelectorAll('.carousel-wrap .btns li')
+    var carouselItems = document.querySelectorAll('.carousel-wrap .carousel-item')
+    var carouselWrap = document.querySelector('.carousel-wrap')
+
+    var len = carouselItems.length
+    //当前的索引
+    var activeIndex = 0
+    //即将显示的索引
+    var now = 0
+    var timer = 0
+
+    function tab() {
+        carouselItems[activeIndex].className = 'carousel-item'
+        btns[activeIndex].className = ''
+
+        carouselItems[now].className = 'carousel-item show'
+        btns[now].className = 'active'
+
+        activeIndex = now
+    }
+    function setCorrectIndex() {
+        if (now >= len) {
+            now = 0
+        }
+        if (now < 0) {
+            now = len - 1
+        }
+    }
+    rightArrow.onclick = function () {
+        now++
+        setCorrectIndex()
+        tab()
+    }
+    leftArrow.onclick = function () {
+        now--
+        setCorrectIndex()
+        tab()
+    }
+    for (var i = 0; i < len; i++) {
+        btns[i].index = i
+        btns[i].onclick = function () {
+            if (this.index != activeIndex) {
+                now = this.index
+                tab()
+            }
+        }
+    }
+    // 加给rightArrow为了模拟人手点击事件
+    timer = setInterval(rightArrow.onclick, 3000)
+
+    carouselWrap.onmouseenter = function () {
+        clearInterval(timer)
+    }
+    carouselWrap.onmouseleave = function () {
+        timer = setInterval(rightArrow.onclick, 3000)
+    }
+</script>
+
+</html>

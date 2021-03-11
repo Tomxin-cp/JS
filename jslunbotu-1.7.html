@@ -1,0 +1,153 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-07 16:09:07
+ * @LastEditTime: 2021-01-07 20:08:54
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\jslunbotu-1.7.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .carousel-wrap li{
+            list-style: none;
+        }
+        .carousel-wrap{
+            width: 800px;
+            height: 400px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-wrap .carousel-imgs,
+        .carousel-wrap .carousel-item,
+        .carousel-wrap .carousel-item img{
+            width: 100%;
+            height: 100%;
+        }
+        .carousel-wrap .carousel-item{
+            position: absolute;
+            left:0;
+            top: 0;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+        .carousel-wrap .carousel-item.show{
+            opacity: 1;
+        }
+        .carousel-wrap .arrow{
+            position: absolute;
+            top:50%;
+            width: 40px;
+            line-height: 80px;
+            background-color: rgba(0,0,0,0.5);
+            margin-top: -40px;
+            font-size: 30px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;            
+        }
+        .carousel-wrap .arrow:hover{
+          background-color: rgba(0,0,0,0.2);  
+        }
+        .carousel-wrap .left-arrow{
+            left:0;
+        }
+        .carousel-wrap .right-arrow{
+            right:0;
+        }
+        .carousel-wrap .btns{
+            list-style: none;
+            position: absolute;
+            right: 50px;
+            bottom: 20px;
+        }
+        .carousel-wrap .btns li{
+            float: left;
+            width: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: rgba(0,0,0,0.5);
+            margin-right: 10px;
+            color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            user-select: none;      
+        }
+        .carousel-wrap .btns li:hover{
+            background-color: rgba(0,0,0,0.2);
+        }
+        .carousel-wrap .btns li.active{
+            background-color: rgba(0,0,0,0.2);
+        } 
+    </style>
+</head>
+<body>
+      <div class="carousel-wrap">
+            <ul class="carousel-imgs">
+                <li class="carousel-item show">
+                    <img src="./1.png" alt="">
+                </li>
+                <li class="carousel-item">
+                    <img src="./2.png" alt="">
+                </li>
+                <li class="carousel-item">
+                    <img src="./3.png" alt="">
+                </li>                        
+            </ul>
+
+            <span class="left-arrow arrow">&lt;</span>
+            <span class="right-arrow arrow">&gt;</span>
+            <ul class="btns">
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+</body>
+<script>
+    var lt = document.querySelector('.left-arrow');
+    var gt = document.querySelector('.right-arrow');
+    var btns = document.querySelectorAll('.btns li');
+    var img = document.querySelectorAll('.carousel-imgs li')
+    //左右按钮
+    var now = 0;
+    var next = 0;
+    var len = img.length
+    gt.onclick = function(){
+        next++;
+        zh();
+        tab();
+    }
+    lt.onclick = function(){
+        next--;
+        zh();
+        tab(); 
+    }
+    function tab(){
+        //隐藏当前图片
+        btns[now].className = '';
+        img[now].className = '';
+        //显示下张图片
+        btns[next].className = 'active';
+        img[next].className = 'carousel-item show';
+        now = next;
+    }
+    function zh(){
+        if(next >= len){
+            next = 0;
+        }
+        if(next < 0){
+            next = len-1;
+        }
+    } 
+</script>
+</html>

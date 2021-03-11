@@ -1,0 +1,93 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-30 15:53:24
+ * @LastEditTime: 2020-12-30 20:23:53
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit;
+ * @FilePath: \pro\JS\jspratice-12.30.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 40px;
+            height: 40px;
+            background-color: blueviolet;
+            position:absolute;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">1</div>
+    <!-- <div id="box1">1</div>
+    <div id="box2">2</div>
+    <div id="box3">3</div>
+    <div id="box4">4</div>
+    <div id="box5">5</div> -->
+</body>
+<script>
+    
+    // 一个盒子
+    var oDiv = document.getElementById('box1');
+    oDiv.onmousedown = function(event){
+        var X = event.clientX - oDiv.offsetLeft;
+        var Y = event.clientY - oDiv.offsetTop;
+        document.onmousemove = function(event){
+            var L = event.clientX - X;
+            var T = event.clientY - Y;
+            if(L<0){
+                L = 0
+            }else if(L > window.innerWidth + window.pageXOffset - oDiv.offsetWidth){
+                L = window.innerWidth + window.pageXOffset - oDiv.offsetWidth
+            }
+            if(T < 0){
+                T = 0
+            }else if( T > window.innerHeight + window.pageYOffset - oDiv.offsetHeight){
+                T = window.innerHeight + window.pageYOffset - oDiv.offsetHeight
+            }
+            oDiv.style.left = L +'px';
+            oDiv.style.top = T +'px';
+        }
+    }
+    oDiv.onmouseup = function(){
+        document.onmousemove = null;
+        document.onmouseup = null;
+    }
+
+    // 多个盒子
+    // var oDiv = document.getElementsByTagName('div');
+    // for(var i = 0;i<oDiv.length;i++){
+    //     oDiv[i].onmousedown = function(event){
+    //         var X = event.clientX - oDiv[i].offsetLeft; 
+    //         var Y = event.clientY - oDiv[i].offsetTop; 
+    //     }
+    //     oDiv[i].onmousemove = function(event){
+    //         var L =event.clientX - oDiv[i].offsetLeft; 
+    //         var Y = event.clientY - oDiv[i].offsetTop; 
+    //         if(L<0){
+    //             L = 0
+    //         }else if(L > window.innerWidth + window.pageXOffset - oDiv.offsetWidth){
+    //             L = window.innerWidth + window.pageXOffset - oDiv.offsetWidth
+    //         }
+    //         if(T < 0){
+    //             T = 0
+    //         }else if( T > window.innerHeight + window.pageYOffset - oDiv.offsetHeight){
+    //             T = window.innerHeight + window.pageYOffset - oDiv.offsetHeight
+    //         }
+    //         oDiv.style.left = L +'px';
+    //         oDiv.style.top = T +'px';
+    //     }
+    //     oDiv.onmouseup = function(){
+    //         document.onmousemove = null;
+    //         document.onmouseup = null;
+    //     }
+    //     continue
+    // }
+</script>
+</html>

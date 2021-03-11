@@ -1,0 +1,46 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-27 11:22:20
+ * @LastEditTime: 2020-12-28 16:37:58
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\jspratice-listpaixu-12-27.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表排序</title>
+</head>
+<body>
+    <button id="px">排序</button>
+    <ul id="father">
+        <li>88</li>
+        <li>4</li>
+        <li>5</li>
+        <li>2</li>
+        <li>15</li>
+        <li>14</li>
+        <li>97</li>
+        <li>55</li>
+    </ul>
+</body>
+<script>
+    var ofather = document.getElementById('father');
+    var opx = document.getElementById('px');
+    opx.onclick = function(){
+        var elems = ofather.children;
+        var arr = [];
+        for(var i = 0;i<elems.length;i++){
+            arr.push(elems[i]);
+        }
+        arr.sort(function(n1,n2){
+        return n1.innerHTML-n2.innerHTML;
+        })
+        for(var j = 0;j<arr.length;j++){
+            ofather.appendChild(arr[j]);
+        }
+    }
+</script>
+</html>

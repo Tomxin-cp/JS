@@ -1,0 +1,79 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-29 19:08:11
+ * @LastEditTime: 2020-12-29 20:51:56
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\jsprstice-12.29.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 2px solid;
+        }
+        #father{
+            width: 300px;
+            height: 300px;
+            padding: 50px;
+        }
+        #son{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="father">
+        <div id="son"></div>
+    </div>
+    <input type="text" id="input">
+    <form action="" id="form">
+        <input type="text">
+        <input type="submit" id="sub">
+        <input type="reset" id="res">
+    </form>
+</body>
+<script>
+    var ofather = document.getElementById('father');
+    var ofson = document.getElementById('son');
+    var oinput = document.getElementById('input');
+    var osub = document.getElementById('sub');
+    var ores = document.getElementById('res');
+    var oform = document.getElementById('form');
+    osub.onsubmit = function(){
+        console.log('i');
+    }
+    // ofather.onclick = function(){
+    //     console.log('i');
+    // }
+    // ofather.onmousedown = function(){
+    //     console.log('i1');
+    // }
+    // ofather.onmouseup = function(){
+    //     console.log('i2');
+    // }
+    // ofather.onmousemove = function(){
+    //     console.log('i3');
+    // }
+    // ofather.onmousewheel = function(){
+    //     console.log('i4');
+    // }
+    // ofather.onmouseover = function(){
+    //     console.log('i5');
+    // }
+    // oinput.onkeydown = function(){
+    //     console.log('j');
+    // }
+    // oinput.onfocus = function(){
+    //     console.log('y');
+    // }
+    // oinput.onblur = function(){
+    //     console.log('x');
+    // }
+</script>
+</html>

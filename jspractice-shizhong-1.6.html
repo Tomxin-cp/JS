@@ -1,0 +1,53 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-06 19:44:08
+ * @LastEditTime: 2021-01-06 21:00:26
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\jspractice-shizhong-1.6.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O'lock</title>
+</head>
+<body>
+    <div id="time">
+        00:00:00
+    </div>
+    <div id="timer">
+        新年倒计时 00:00:00
+    </div>
+</body>
+<script>
+    var Time = document.getElementById('time');
+    var Timer = document.getElementById('timer');
+    function addo(hms){
+        return hms >= 10 ? ''+hms : '0'+hms;
+    }
+    function clock(){
+        var today = new Date();
+        var Hours = today.getHours();
+        var Minutes = today.getMinutes();
+        var Seconds = today.getSeconds();
+        Time.innerHTML = addo(Hours) + ':' + addo(Minutes) +':' + addo(Seconds)
+    }
+    setInterval(clock,1000);
+    clock();
+    
+    var endDate = new Date('2021-02-12 00:00:00').getTime();
+    function djs(){
+        var currentDate = Date.now();
+        var allSeconds = endDate - currentDate;
+        console.log(allSeconds);
+        var oHours = parseInt(allSeconds / 3600);
+        var oMinutes = parseInt(allSeconds % 3600 / 60);
+        var oSeconds = parseInt(allSeconds % 3600 % 60);
+        Timer.innerHTML = addo(oHours) + ':' + addo(oMinutes) +':' + addo(oSeconds);
+    }
+    setInterval(djs,1000);
+    djs();
+</script>
+</html>

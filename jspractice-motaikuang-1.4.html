@@ -1,0 +1,60 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-04 18:15:27
+ * @LastEditTime: 2021-01-04 19:01:32
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\jspractice-motaikuang-1.4.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模态框登录</title>
+    <style>
+        #mask{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left:0;
+            right:0;
+            opacity: 50%;
+            background-color:rgb(0,0,0.4);
+            display: none;
+        }
+        #inform{
+            position: relative;
+            z-index: 5;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="登录" id="load">
+    <div id="inform">
+        <input type="text" id="user" placeholder="账户"><br>
+        <input type="password" id="password"  placeholder="密码"><br>
+        <input type="submit" id="sub" >
+        <input type="reset" id="res" >
+    </div>
+    <div id="mask"></div>
+</body>
+<script>
+    var oLoad = document.getElementById('load');
+    var oInform = document.getElementById('inform');
+    var oSub = document.getElementById('sub');
+    var oRes = document.getElementById('res');
+    var oMask = document.getElementById('mask');
+    oLoad.onclick = function(event){
+        oInform.style.display = 'block';
+        oMask.style.display = 'block';
+        event.stopPropagation();
+    }
+    document.onclick = function(event){
+        oInform.style.display = 'none';
+        oMask.style.display = 'none';
+        event.stopPropagation();
+    }
+</script>
+</html>

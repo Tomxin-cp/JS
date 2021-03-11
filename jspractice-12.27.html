@@ -1,0 +1,86 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-27 14:44:29
+ * @LastEditTime: 2020-12-27 17:09:51
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\jspractice-12.27.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 300px;
+            height: 300px;
+            padding: 20px;
+            border: 1px solid;
+            margin-top: 100px;
+            margin-left: 100px;
+            position: relative;      
+            }
+        .son{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid;
+            position: absolute;
+            top: 50px;
+            left: 30px;
+        }
+        body{
+            width: 4000px;
+            height: 4000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="father" class="father">
+        <div id="son" class="son"></div>
+    </div>
+    <button id="button">打开</button>
+    <button id="button2">关闭</button>
+    <div id="father2">
+        <input type="text" id="input3">
+        <button id="button3">提交</button>
+    </div>
+</body>
+<script>
+    var ofather = document.getElementById('father');
+    var oson = document.getElementById('son');
+    var obutton = document.getElementById('button');
+    var obutton2 = document.getElementById('button2');
+    var obutton3 = document.getElementById('button3');
+    var oinput3 = document.getElementById('input3');
+    // console.log(oson);
+    // console.log('oson.offsetParent',oson.offsetParent);
+    // console.log('oson.offsetTop',oson.offsetTop);
+    // console.log('oson.offsetLeft',oson.offsetLeft);
+    // console.log('oson.offsetWidth',oson.offsetWidth);
+    // console.log('oson.offsetHeight',oson.offsetHeight);
+    // console.log('scrollLeft',document.documentElement.scrollLeft);
+    // console.log('scrollTop',document.documentElement.scrollTop);
+    // console.log('scrollWidth',document.documentElement.scrollWidth);
+    // console.log('scrollHeight',document.documentElement.scrollHeight);
+    // console.log('window.screenX',window.screenX);
+    // console.log('window.screenY',window.screenY);
+    // console.log('window.innerWidth',window.innerWidth);
+    // console.log('window.innerHeight',window.innerHeight);
+    // console.log('window.outerWidth',window.outerWidth);
+    // console.log('window.outerHeight',window.outerHeight);
+    obutton.onclick = function(){
+        var i = window.open('https://www.cctv.com',"_self");
+        console.log(i);
+    }
+    obutton2.onclick = function(){
+        window.close();
+    }
+    obutton3.onclick = function(){
+        var val = oinput3.value;
+        
+    }
+</script>
+</html>

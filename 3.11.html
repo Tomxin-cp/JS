@@ -1,0 +1,43 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-03-11 18:15:22
+ * @LastEditTime: 2021-03-11 20:57:53
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit'
+ * @FilePath: \pro\JS\3.11.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str1 = '123456789a';
+    console.log(str1.replace(/\d{2,3}/,'*'));
+    //前三位看做一个整体进行代换 \d是作用于一个字符串。
+    console.log(str1.replace(/\d{2,3}/g,'*'));
+    //全局模式下，对整个字符串的每三位进行一次代换
+    var str2 = '2021-03-11'
+    console.log(str2.replace(/(\d{4})-(\d{2})-(\d{2})/,'$3/$2/$1'));
+    var str3 = 'asdAFS'
+    var reg = /a/i
+    console.log(reg.ignoreCase);
+    console.log(reg.global);
+    //前瞻
+    var str4 = 'aq1da4bd3fc5!6ffa4#'
+    //要求1：找到所有的英文字符，且该字符后面带有数字
+    //要求2：找到所有的英文字符，且该字符前面带有数字
+    console.log(str4);
+    console.log('找到所有的英文字符，且该字符后面带有数字1:'+str4.replace(/[a-z](?=\d)/g,'*'));
+    console.log('找到所有的英文字符，且该字符前面带有数字2:'+str4.replace(/([0-9])([a-z])/g,'$1\*'));
+    var str5 = '<span>s</span>'
+    console.log(/<[^<>]+>/.test(str5));
+    //以尖括号开头中间不能再包含尖括号
+</script>
+</html>

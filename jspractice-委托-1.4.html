@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-04 19:41:14
+ * @LastEditTime: 2021-01-05 16:00:29
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\jspractice-委托-1.4.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>委托</title>
+    <style>
+        #son{
+            width: 50px;
+            height: 50px;
+            background-color:red;
+            list-style: none;
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="增加" id="button">
+    <ul id="father">
+        <li id="son">1</li>
+        <li id="son">2</li>
+        <li id="son">3</li>
+        <li id="son">4</li>
+    </ul>
+</body>
+<script>
+    var oSon = document.querySelectorAll('ul #son');
+    var oButton = document.getElementById('button');
+    var oFather = document.getElementById('father');
+    oButton.onclick = function(){
+        oBox = document.createElement('div');
+        oBox.className = 'son';
+        oBox.id = 'son';
+        console.log(oBox);
+        oFather.appendChild(oBox);
+    }
+</script>
+</html>

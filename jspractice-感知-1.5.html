@@ -1,0 +1,40 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-05 16:02:37
+ * @LastEditTime: 2021-01-05 16:21:49
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\jspractice-感知-1.5.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义事件练习-让其他元素感知事件</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div id="box1">box1</div>
+   <div id="box2">box2</div>
+   <div id="box3">box3</div>
+</body>
+<script>
+    var oBox1 = document.getElementById('box1');
+    var oBox2 = document.getElementById('box2');
+    var oBox3 = document.getElementById('box3');
+    var gored = new Event('gr');
+    oBox2.addEventListener('gr',function(){
+        this.style.color = red
+    });
+    oBox1.onclick = function(){
+       oBox2.dispatchEvent(gored);
+    }
+</script>
+</html>

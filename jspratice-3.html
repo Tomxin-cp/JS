@@ -1,0 +1,145 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-23 19:12:30
+ * @LastEditTime: 2020-12-29 16:49:03
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\jspratice-3.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        div{
+            border: 1px solid;
+            width: 100px;
+            height: 100px;
+        }
+    </style> -->
+</head>
+<body>
+    <!-- <p id="box">我是段落</p>
+    <div id="father" class="h">
+        <div class="son1">1</div>
+        <div class="son2">2</div>
+        <div class="son3">3</div>
+    </div> -->
+    <input type="button" id="input" value="插入">
+    <ul id="n1">项目一
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <button id="hq"></button>
+    <!-- <ul id="n2">项目二</ul>  -->
+</body>
+<script>
+    // console.log(document.getElementById('box').firstChild.nodeType)
+    // var i = document.getElementsByTagName('p')//拿到的是一个集合
+    // console.log(i[0]);
+    // console.log(i[0].firstChild.nodeType);
+    // var i=document.getElementById('father')
+    // console.log(i);
+    // console.log(i.children[1]);
+    // var i=document.getElementsByClassName('son2')
+    // console.log(i[0]);
+    // console.log(i[0].parentNode);
+    // console.log(i[0].nextElementSibling);
+    
+    //     var elem = document.getElementById('box')
+    //     elem.onclick = function(){
+    //         this.style.color='blue'
+    //     }
+    //数组迭代
+    // var arr=[5,4,9,7,77,5,6,1,12,30]
+    //forEach
+    // arr.forEach(function(value,index){
+    // console.log(index,value);
+    // console.log(index);
+    // })
+    //for
+    // for(var i = 0,len = arr.length;i<len;i++){
+    // console.log(arr[i])
+    // }
+    //map
+    // var newArr = arr.map(function(value,index){
+    // return value*10;
+    // })
+    // console.log(newArr);
+
+    // 12-24
+    // var y = document.getElementById('father')
+    // console.log(y);
+    // var x = y.getAttribute('class')
+    // console.log(x);
+    // y.setAttribute()
+
+    // 12-25
+    
+    //创建插入
+    // var oinput = document.getElementById('input');
+    // oinput.onclick = function(){
+    //     var odiv = document.createElement('div');
+    //     console.log(odiv);
+    //     document.body.appendChild(odiv);
+    // }  
+
+    //已有的插入
+    // var on1 = document.getElementById('n1');
+    // var on11 = document.querySelectorAll('#on1.li')
+    // console.log(on11);
+    // var on111 = getComputedStyle(ul,false)["lenght"]
+    // console.log(on111);
+    // var on2 = document.getElementById('n2');
+    // var oinput = document.getElementById('input');
+    // oinput.onclick = function(){
+    //     var elem = on1.firstElementChild;
+    //     // console.log(elem);
+    //     // on2.appendChild(elem);
+    //     on2.insertBefore(elem,on2.lastElementChild)
+    // }
+
+    // 12-28
+    
+    var ohq = document.getElementById('hq');
+    ohq.className = '获取';
+    ohq.value = '获取';
+    ohq.innerHTML = '获取';
+    ohq.setAttribute('属性','实验');
+    ohq.setAttribute('属性2','实验2');
+    ohq.getAttribute('属性');
+    ohq.removeAttribute('属性2');
+    console.log(ohq);
+    ohq.onclick = function(){
+        console.log(location);
+        var i = console.log(window.navigator);
+        var j = console.log(navigator);
+        console.log(i === j);
+    }
+
+    // var ohq = document.getElementById('hq');
+    // var oinput = document.getElementById('input');
+    // var on1 = document.getElementById('n1');
+    // ohq.innerHTML = '删除格式';
+    // function toColor(){
+    //     this.style.color = 'red';
+    // }
+    // function toBig(){
+    //     this.style.fontSize = '78px';
+    // }
+    // on1.addEventListener('click',toColor,false);
+    // on1.addEventListener('click',toBig,false);
+    // on1.addEventListener('click',toBig,false);
+    // ohq.removeEventListener('click',toBig,false);
+
+    // 12-29
+
+    var arr = [40,64,58,5,4,2,64,55,40,6,5,4,2,1,7,990,55,4];
+    console.log(arr);
+    console.log(arr.indexOf(5,3));
+    console.log(arr.indexOf(40,1));
+</script>
+</html>

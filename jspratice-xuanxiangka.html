@@ -1,0 +1,57 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-24 20:46:08
+ * @LastEditTime: 2020-12-25 19:21:02
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\jspraticexuanxiangka.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡</title>
+    <style>
+        li{
+            list-style: none;
+        }
+        .select{
+            margin: 50px;
+        }
+        .select li{
+            display: inline;
+            width: 100px;
+            height: 50px;
+            background-color: cadetblue;
+        }
+        
+    </style>
+</head>
+<body>
+    <ul id="select" class="select">
+        <li>显示1</li>
+        <li>显示2</li>
+        <li>显示3</li>
+    </ul>
+    <ul id="contian" class="contian">
+        <li>显示一内容</li>
+        <li>显示二内容</li>
+        <li>显示三内容</li>
+    </ul>
+</body>
+<script>
+    var ohot = document.getElementById('hot');
+    var oimp = document.getElementById('imp');
+    var oshow1 = document.getElementById('show1');
+    var oshow2 = document.getElementById('show2');
+    oimp.onclick = function(){
+        oshow1.style.display='none';
+        oshow2.style.display='block';
+    }
+    ohot.onclick = function(){
+        oshow1.style.display='block';
+        oshow2.style.display='none';
+    }
+</script>
+</html>

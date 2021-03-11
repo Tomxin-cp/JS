@@ -1,0 +1,40 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-03-06 10:39:08
+ * @LastEditTime: 2021-03-06 11:08:55
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\3.6.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person(name,age){
+    this.name = name;
+    this.age = age;
+}
+Person.prototype = {
+    // constructor:Person,
+    LEGS:2,
+    sayHi:function(){
+        console.log('Hello, I am ' + this.name+ ', I am '+this.age+' years old, and '+'I have '+this.LEGS+' legs')
+    },
+    showName:function(){
+        console.log('I am '+this.name);
+    },
+    showAge:function(){
+        console.log('I am '+this.age + ' years old');
+    }
+} 
+console.log(Person.prototype);
+console.log('1'+Person.prototype.constructor);
+</script>
+</html>
