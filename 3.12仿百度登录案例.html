@@ -1,0 +1,88 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-03-12 19:27:53
+ * @LastEditTime: 2021-03-15 17:55:45
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \pro\JS\3.12仿百度登录案例.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿百度登录案例</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        list-style: none;
+    }
+    .mid-left-form input{
+        font-size: 30px;
+        margin-top: 10px;
+        border: 1px solid;
+    }
+    .mid-left-form input:focus{
+        outline: none;
+        border-color: skyblue;
+        /* background-color: royalblue; */
+    }
+    .top-img{
+        height: 100px;
+        background-repeat: no-repeat;
+        background-position: center 0px;
+        background-image: url(../JS/仿百度注册素材/images/t.png);
+        width: 100%;
+    }
+    .mid{
+        width: 990px;
+        position: relative;
+        margin: 80px auto;
+        
+    }
+    .mid-left-form{
+        position: absolute;
+        top: 10px;
+        left: 0px;
+        width: 720px;
+        height: 366px;
+        /* background-color: brown; */
+        /* margin: 10px auto; */
+    }
+    .mid-right-img{
+        position:absolute;
+        top: 0px;
+        width: 270px;
+        height: 427px;
+        right: 0px;
+        background-image: url(../JS/仿百度注册素材/images/r.png);
+        background-repeat: no-repeat;
+        background-position: center 0px;
+    }
+</style>
+<body>
+    <!-- 顶部图片部分 -->
+    <div id="topimg" class="top-img"><img src="" alt=""><text
+    <!-- 中间部分 -->
+    <div class="mid">
+        <!-- 左表单部分 -->
+        <div class="mid-left-form">
+            <ul class="mid-ul">
+                <li class="mid-ul-li">用户名<input type="text" name="" id=""></li>
+                <li class="mid-ul-li">手机号<input type="text" name="" id=""></li>
+                <li class="mid-ul-li">密码<input type="text" name="" id=""></li>
+            </ul>
+        </div>
+        <!-- 右图片部分 -->
+        <div class="mid-right-img"></div>
+    </div>
+
+</body>
+
+</html>
